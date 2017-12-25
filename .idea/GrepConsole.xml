@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GrepConsole">
+    <option name="pinnedGrepConsolesState">
+      <PinnedGrepConsolesState>
+        <option name="map">
+          <map>
+            <entry>
+              <key>
+                <RunConfigurationRef>
+                  <option name="icon" value="tomcat.png" />
+                  <option name="name" value="hello-ssm" />
+                </RunConfigurationRef>
+              </key>
+              <value>
+                <Pins>
+                  <option name="pins">
+                    <list>
+                      <Pin>
+                        <option name="consoleUUID" value="85e5cee6-c247-4b17-8411-cc0683f26314" />
+                        <option name="grepModel">
+                          <GrepModel>
+                            <option name="expression" value=" Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[]]" />
+                            <option name="unlessExpression" value="" />
+                          </GrepModel>
+                        </option>
+                      </Pin>
+                      <Pin>
+                        <option name="consoleUUID" value="633bb8dc-145f-4ee7-bce5-570df8c6e453" />
+                        <option name="grepModel">
+                          <GrepModel>
+                            <option name="expression" value="" />
+                            <option name="unlessExpression" value="" />
+                          </GrepModel>
+                        </option>
+                        <option name="parentConsoleUUID" value="85e5cee6-c247-4b17-8411-cc0683f26314" />
+                      </Pin>
+                    </list>
+                  </option>
+                </Pins>
+              </value>
+            </entry>
+          </map>
+        </option>
+      </PinnedGrepConsolesState>
+    </option>
+  </component>
+</project>
