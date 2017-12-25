@@ -10,7 +10,8 @@
         book_id,
         name,
         number,
-        detail
+        detail ,
+        url
         FROM
         book
         WHERE

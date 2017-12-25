@@ -69,6 +69,7 @@ ${upBook.bookId}
     学生id<input type="text" name="book_id"> <br/>
     学生编号<input type="text" name="number"> <br/>
     学生描述<input type="text" name="detail"> <br/>
+    照片地址<input type="text" name="url"> <br/>
 
     <button onsubmit="addBook()">submit</button>
 

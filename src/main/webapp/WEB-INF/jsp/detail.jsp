@@ -36,7 +36,7 @@
         <div class="col-md-12 column">
             <ul class="nav nav-tabs">
                 <li><a href="<%=appPath%>/book/list">首页</a></li>
-                <li class="active"><a href="<%=appPath%>/book/detail/1003">图书具体信息</a></li>
+                <li class="active"><a href="<%=appPath%>/book/detail/10">图书具体信息</a></li>
                 <li class="disabled"><a href="#">信息</a></li>
             </ul>
         </div>
@@ -59,6 +59,7 @@
                     <th>图书编号</th>
                     <th>图书名字</th>
                     <th>图书数量</th>
+                    <th>图片</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -66,15 +67,22 @@
                     <td>${requestScope.get('book').bookId}</td>
                     <td>${requestScope.get('book').name}</td>
                     <td>${requestScope.get('book').number}</td>
+                    <td><img src="${book.url}" style="height: 100px ; width: 100px" ></td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
+
+    <div >
+        <img src="${book.url}" style="width: auto ; height: auto ; margin-bottom: 100px">
+    </div>
+
+
     <div class="row clearfix">
         <div class="col-md-12 column">
             <p>
-                <em>《${requestScope.get('book').name}》</em> ${requestScope.get('book').detail}
+                <em><${requestScope.get('book').name}></em> ${requestScope.get('book').detail}
             </p>
         </div>
     </div>

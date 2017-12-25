@@ -9,9 +9,11 @@
 <script type="text/javascript">
     var ws;
 
+
     function hello() {
+        var userName = document.getElementById("name").value;
 //        ws = new WebSocket("ws://127.0.0.1:81/WebsocketTest/hello");
-        ws = new WebSocket("ws://127.0.0.1:81/hello/dasha");
+        ws = new WebSocket("ws://127.0.0.1:81/hello/" + userName);
 //        ws = new WebSocket("ws://localhost:81/hello-ssm/hello");
         ws.onopen = function (event) {
             console.log(event);
@@ -72,6 +74,10 @@
 
 
 <div id="dv"/>
+
+输入用户名：<input type="text" id="name" name="name"/>
+<br/>
+<br/>
 <input type="button" value="连接1" onclick="hello()"/>
 <input type="text" id="msg"/><input type="button" onclick="subsend()" value="发送"/>
 

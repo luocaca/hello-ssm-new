@@ -12,11 +12,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
+import java.net.InetAddress;
 import java.util.Date;
 import java.util.List;
 
@@ -110,6 +113,7 @@ public class BookController {
 
             apiResult.setMsg("添加成功");
             apiResult.setCode("1");
+
         } catch (Exception e) {
             apiResult.setData("添加失败" + e.getMessage());
             apiResult.setCode("0");
@@ -170,6 +174,78 @@ public class BookController {
         apiResult.setMsg("推送成功\n" + pushId);
         String result = gson.toJson(apiResult);
         return result;
+    }
+
+
+    @PostConstruct
+    public void init() {
+        logger.debug("-----------------upload controller init()------------------------");
+    }
+
+
+    @RequestMapping(value = "/image")
+    @ResponseBody
+    public String fileUpload(
+            @RequestParam("file") MultipartFile file,
+            HttpServletRequest request) {
+
+        Gson gson = new Gson();
+        ApiResult<String> apiResult = new ApiResult<>();
+
+
+        if (file != null && !file.isEmpty()) {
+            String originalFilename = file.getOriginalFilename();
+            logger.debug(originalFilename);
+
+            // 文件保存路劲
+            File outPath = new File(request.getServletContext().getRealPath("/"), "upload");
+            if (!outPath.exists() || !outPath.isDirectory()) {
+                outPath.mkdirs();
+            }
+
+            //保存的文件 dest file
+            File outFile = new File(outPath, file.getOriginalFilename());
+
+            logger.debug(outFile.getAbsolutePath());
+
+            try {
+                file.transferTo(outFile);
+                apiResult.setCode("1");
+                apiResult.setMsg("succeed");
+
+                //InetAddress.getLocalHost().getHostAddress();//获得本机IP
+                String localIp = InetAddress.getLocalHost().getHostAddress();//获得本机IP
+                String url = request.getContextPath();
+                String realPath = "http://" + localIp + ":" + request.getLocalPort() + "/upload/" + file.getOriginalFilename();
+
+
+                Book book = new Book();
+                book.setUrl(realPath);
+                book.setDate(new Date());
+                book.setDetail("安卓手机图片上传");
+                bookService.addBook(book);
+
+                // private String name;
+                //    private int number;
+                // private String detail;
+                //  private Date date ;
+
+                logger.debug(realPath);
+                apiResult.setData(realPath);
+//              apiResult.setData(request.getServletContext().getRealPath("/") + file.getOriginalFilename());
+            } catch (IOException e) {
+                apiResult.setCode("0");
+                apiResult.setMsg("faild;\n" + e.getMessage());
+                e.printStackTrace();
+                logger.debug(e.getMessage());
+            }
+        }
+
+        logger.debug("" + gson.toJson(apiResult));
+
+        return "" + gson.toJson(apiResult);
+
+
     }
 
 
