@@ -19,8 +19,11 @@ import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
+import java.net.Inet4Address;
 import java.net.InetAddress;
+import java.net.NetworkInterface;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.List;
 
 /**
@@ -216,7 +219,8 @@ public class BookController {
                 //InetAddress.getLocalHost().getHostAddress();//获得本机IP
                 String localIp = InetAddress.getLocalHost().getHostAddress();//获得本机IP
                 String url = request.getContextPath();
-                String realPath = "http://" + localIp + ":" + request.getLocalPort() + "/upload/" + file.getOriginalFilename();
+//                String realPath = "http://" + INTERNET_IP + ":" + request.getLocalPort() + "/hello-ssm/upload/" + file.getOriginalFilename();
+                String realPath = "http://" + "www.luocaca.cn" + "/hello-ssm/upload/" + file.getOriginalFilename();
 
 
                 Book book = new Book();
@@ -248,5 +252,54 @@ public class BookController {
 
     }
 
+
+
+
+    /**
+     * 获得外网IP
+     * @return 外网IP
+     */
+    private static String getInternetIp(){
+        try{
+            Enumeration<NetworkInterface> networks = NetworkInterface.getNetworkInterfaces();
+            InetAddress ip = null;
+            Enumeration<InetAddress> addrs;
+            while (networks.hasMoreElements())
+            {
+                addrs = networks.nextElement().getInetAddresses();
+                while (addrs.hasMoreElements())
+                {
+                    ip = addrs.nextElement();
+                    if (ip != null
+                            && ip instanceof Inet4Address
+                            && ip.isSiteLocalAddress()
+                            && !ip.getHostAddress().equals(INTRANET_IP))
+                    {
+                        return ip.getHostAddress();
+                    }
+                }
+            }
+
+            // 如果没有外网IP，就返回内网IP
+            return INTRANET_IP;
+        } catch(Exception e){
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public static String INTRANET_IP = getIntranetIp(); // 内网IP
+    public static String INTERNET_IP = getInternetIp(); // 外网IP
+    /**
+     * 获得内网IP
+     * @return 内网IP
+     */
+    private static String getIntranetIp(){
+        try{
+            return InetAddress.getLocalHost().getHostAddress();
+        } catch(Exception e){
+            throw new RuntimeException(e);
+        }
+    }
 
 }

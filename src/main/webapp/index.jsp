@@ -13,7 +13,7 @@
     function hello() {
         var userName = document.getElementById("name").value;
 //        ws = new WebSocket("ws://127.0.0.1:81/WebsocketTest/hello");
-        ws = new WebSocket("ws://127.0.0.1:81/hello/" + userName);
+        ws = new WebSocket("ws://www.luocaca.cn/hello-ssm/hello/" + userName);
 //        ws = new WebSocket("ws://localhost:81/hello-ssm/hello");
         ws.onopen = function (event) {
             console.log(event);
@@ -64,7 +64,7 @@
 
 <%--192.168.1.127:81--%>
 <br/><br/>
-<a href="http://192.168.1.127:81/book/push/83e5cb7bdda14d49b5ca16b1197c8134" target="_blank">推送</a>
+<a href="http://www.luocaca.cn/hello-ssm/book/push/83e5cb7bdda14d49b5ca16b1197c8134" target="_blank">推送</a>
 <%--<a href="http://localhost:81/book/push/955a53481d514a3eb424c7e74463f03a" target="_blank">推送</a>--%>
 <%--<a href="http://localhost:81/book/push/83e5cb7bdda14d49b5ca16b1197c8134" target="_blank">推送</a>--%>
 <br/><br/>
