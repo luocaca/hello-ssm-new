@@ -67,7 +67,7 @@ public class PushUtil {
                 .setAudience(Audience.alias("2876f7e0f51c4153aadc603b661fedfa"))
                 .setMessage(Message.newBuilder().setMsgContent(momentId)
                         .addExtra("momentId", momentId)
-                        .addExtra("bb", "bb")
+                        .addExtra("loginOut", "goOut")
                         .addExtra("cc", "cc").build())
                 .setNotification(
                         Notification

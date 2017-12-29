@@ -1,8 +1,10 @@
 package com.hisen.web;
 
+import com.hisen.common.PushUtil;
 import com.hisen.common.WebSocketUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.util.WebUtils;
 
 import javax.websocket.*;
 import javax.websocket.server.PathParam;
@@ -29,6 +31,16 @@ public class WebsocketTest {
     public void onopen(@PathParam("userId") String userId, Session session) {
         log("连接成功" + session.getId());
         WebSocketUtils.put(userId, session);
+        try {
+            session.getBasicRemote().sendText("登录成功+当前在线人数:" + WebSocketUtils.getCount() + "人 \n ----- " + "\n" + WebSocketUtils.getOnlineList() + "\n  --- \n");
+        } catch (IOException e) {
+            try {
+                session.getBasicRemote().sendText("登录失败");
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            e.printStackTrace();
+        }
     }
 
 

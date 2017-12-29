@@ -48,4 +48,21 @@
         <!-- 给出需要扫描Dao接口包 -->
         <property name="basePackage" value="com.hisen.dao"/>
     </bean>
+
+
+
+    <bean id="propertyConfigurer"
+          class="com.hisen.common.PropertyConfigurer">
+        <property name="ignoreResourceNotFound" value="true" />
+        <property name="locations">
+            <list>
+                <value>classpath:config.properties</value>
+            </list>
+        </property>
+    </bean>
+
+
+
+
+
 </beans>

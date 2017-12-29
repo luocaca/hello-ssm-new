@@ -17,10 +17,24 @@ public class WebSocketUtils {
     private static Map<String, Session> sessionMap = new ConcurrentHashMap<String, Session>();
 
 
+    public static String getOnlineList() {
+
+        StringBuffer stringBuffer = new StringBuffer();
+        sessionMap.forEach((a, b) -> {
+            stringBuffer.append("\n" + a);
+        });
+        return stringBuffer.toString();
+    }
+
+    public static int getCount() {
+        return sessionMap.size();
+    }
+
     /**
      * 前缀
      */
-    private static final String PREFIX = "luocaca";
+//    private static final String PREFIX = "luocaca";
+    private static final String PREFIX = "";
 
 
     public static List<Session> getOtherSession(String userId) {
@@ -29,7 +43,7 @@ public class WebSocketUtils {
         set.forEach(stringSessionEntry -> {
             if (!stringSessionEntry.getKey().equals(getKey(userId))) {
                 resule.add(stringSessionEntry.getValue());
-            }else{
+            } else {
                 resule.add(stringSessionEntry.getValue());
             }
         });

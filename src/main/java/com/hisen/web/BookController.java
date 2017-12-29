@@ -1,6 +1,7 @@
 package com.hisen.web;
 
 import com.google.gson.Gson;
+import com.hisen.common.PropertyConfigurer;
 import com.hisen.common.PushUtil;
 import com.hisen.entity.ApiResult;
 import com.hisen.entity.Book;
@@ -36,6 +37,9 @@ public class BookController {
 
     @Autowired
     private BookService bookService;
+
+    @Autowired
+    private PropertyConfigurer configurer;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model) {
@@ -192,6 +196,11 @@ public class BookController {
             @RequestParam("file") MultipartFile file,
             HttpServletRequest request) {
 
+
+        System.out.println("测试能够获取pro文件");
+        System.out.println("istest = " + configurer.getProperty("config.istest", "true"));
+
+
         Gson gson = new Gson();
         ApiResult<String> apiResult = new ApiResult<>();
 
@@ -219,8 +228,12 @@ public class BookController {
                 //InetAddress.getLocalHost().getHostAddress();//获得本机IP
                 String localIp = InetAddress.getLocalHost().getHostAddress();//获得本机IP
                 String url = request.getContextPath();
-//                String realPath = "http://" + INTERNET_IP + ":" + request.getLocalPort() + "/hello-ssm/upload/" + file.getOriginalFilename();
-                String realPath = "http://" + "www.luocaca.cn" + "/hello-ssm/upload/" + file.getOriginalFilename();
+                String realPath = "";
+                if (configurer.getProperty("config.istest").equals("true")) {
+                    realPath = "http://" + INTERNET_IP + ":" + request.getLocalPort() + "/hello-ssm/upload/" + file.getOriginalFilename();
+                } else {
+                    realPath = "http://" + "www.luocaca.cn" + "/hello-ssm/upload/" + file.getOriginalFilename();
+                }
 
 
                 Book book = new Book();
@@ -253,28 +266,24 @@ public class BookController {
     }
 
 
-
-
     /**
      * 获得外网IP
+     *
      * @return 外网IP
      */
-    private static String getInternetIp(){
-        try{
+    private static String getInternetIp() {
+        try {
             Enumeration<NetworkInterface> networks = NetworkInterface.getNetworkInterfaces();
             InetAddress ip = null;
             Enumeration<InetAddress> addrs;
-            while (networks.hasMoreElements())
-            {
+            while (networks.hasMoreElements()) {
                 addrs = networks.nextElement().getInetAddresses();
-                while (addrs.hasMoreElements())
-                {
+                while (addrs.hasMoreElements()) {
                     ip = addrs.nextElement();
                     if (ip != null
                             && ip instanceof Inet4Address
                             && ip.isSiteLocalAddress()
-                            && !ip.getHostAddress().equals(INTRANET_IP))
-                    {
+                            && !ip.getHostAddress().equals(INTRANET_IP)) {
                         return ip.getHostAddress();
                     }
                 }
@@ -282,7 +291,7 @@ public class BookController {
 
             // 如果没有外网IP，就返回内网IP
             return INTRANET_IP;
-        } catch(Exception e){
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
@@ -290,14 +299,16 @@ public class BookController {
 
     public static String INTRANET_IP = getIntranetIp(); // 内网IP
     public static String INTERNET_IP = getInternetIp(); // 外网IP
+
     /**
      * 获得内网IP
+     *
      * @return 内网IP
      */
-    private static String getIntranetIp(){
-        try{
+    private static String getIntranetIp() {
+        try {
             return InetAddress.getLocalHost().getHostAddress();
-        } catch(Exception e){
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
