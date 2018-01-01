@@ -56,25 +56,43 @@
 
 
 %>
-${upBook.bookId}
-
 
 
 <%--<form method="post" action="${path}/book/add?bookId=666&number=666&detail=abcde&name=xiaoming>--%>
-<form method="get" action="${pageContext.request.contextPath}/book/add" >
-<%--<form method="get" action="${pageContext.request.contextPath}/book/add/333" >--%>
+<form method="get" action="${pageContext.request.contextPath}/book/add">
+    <%--<form method="get" action="${pageContext.request.contextPath}/book/add/333" >--%>
 
     <text>
-    学生姓名<input type="text" name="name" > <br/>
-    学生id<input type="text" name="book_id"> <br/>
-    学生编号<input type="text" name="number"> <br/>
-    学生描述<input type="text" name="detail"> <br/>
-    照片地址<input type="text" name="url"> <br/>
+        学生姓名<input type="text" name="name"> <br/>
+        学生id<input type="text" name="book_id"> <br/>
+        学生编号<input type="text" name="number"> <br/>
+        学生描述<input type="text" name="detail"> <br/>
+        照片地址<input type="text" name="url"> <br/>
+    </text>
 
     <button onsubmit="addBook()">submit</button>
 
 </form>
 
+
+<br/>
+<br/>
+<br/>
+<h2>添加视频地址</h2>
+
+<%--<form method="post" action="${path}/book/add?bookId=666&number=666&detail=abcde&name=xiaoming>--%>
+<form method="get" action="${pageContext.request.contextPath}/book/addvideo">
+    <%--<form method="get" action="${pageContext.request.contextPath}/book/add/333" >--%>
+
+    <text>
+        视频名称<input type="text" name="name" value="一个视频"> <br/>
+        imageurl<input type="text" name="imageurl"> <br/>
+        视频地址<input type="text" name="url"> <br/>
+        视频类型<input type="text" name="type"> <br/>
+        描述<input type="text" name="comment"> <br/>
+    </text>
+
+    <button onsubmit="addBook()">submit</button>
 
 </form>
 

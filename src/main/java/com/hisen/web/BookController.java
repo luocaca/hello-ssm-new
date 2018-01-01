@@ -5,6 +5,7 @@ import com.hisen.common.PropertyConfigurer;
 import com.hisen.common.PushUtil;
 import com.hisen.entity.ApiResult;
 import com.hisen.entity.Book;
+import com.hisen.entity.Video;
 import com.hisen.service.BookService;
 import com.sun.deploy.config.ClientConfig;
 import org.apache.ibatis.annotations.Param;
@@ -18,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.Encoded;
 import java.io.File;
 import java.io.IOException;
 import java.net.Inet4Address;
@@ -47,6 +49,21 @@ public class BookController {
         model.addAttribute("list", list);
         return "list";// WEB-INF/jsp/"list".jsp
     }
+
+    @RequestMapping(value = "/videos", method = RequestMethod.GET, produces = "text/plain;charset=UTF-8")
+    @ResponseBody
+    public String videos(Model model) {
+        List<Video> list = bookService.queryAllVideo(0, 1000);
+//      model.addAttribute("list", list);
+        Gson gson = new Gson();
+        ApiResult<List<Video>> apiResult = new ApiResult<>();
+        apiResult.setData(list);
+        apiResult.setCode("1");
+        apiResult.setMsg("查询成功");
+        String result = gson.toJson(apiResult);
+        return result;// WEB-INF/jsp/"list".jsp
+    }
+
 
     @RequestMapping(value = "/allbook", method = RequestMethod.GET, produces = "text/plain;charset=UTF-8")
     @ResponseBody
@@ -117,6 +134,41 @@ public class BookController {
         try {
 
             i = bookService.addBook(book);
+
+            apiResult.setMsg("添加成功");
+            apiResult.setCode("1");
+
+        } catch (Exception e) {
+            apiResult.setData("添加失败" + e.getMessage());
+            apiResult.setCode("0");
+            e.printStackTrace();
+        }
+        result = gson.toJson(apiResult);
+        return result;
+    }
+
+
+    @RequestMapping(value = "/addvideo", method = RequestMethod.GET, produces = "text/plain;charset=UTF-8")
+    @ResponseBody
+    private String addvideo(@Param("name") String name,
+                            @Param("imageurl") String imageurl,
+                            @Param("url") String url,
+                            @Param("type") String type,
+                            @Param("comment") String comment
+    ) {
+        ApiResult apiResult = new ApiResult();
+        Video book = new Video();
+        book.setName(name);
+        book.setType(0);
+        book.setUrl(url);
+//        book.setCreateTime("111111");
+        int i = 0;
+
+        Gson gson = new Gson();
+        String result = "";
+        try {
+
+            i = bookService.addVideo(book);
 
             apiResult.setMsg("添加成功");
             apiResult.setCode("1");

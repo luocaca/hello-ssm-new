@@ -14,7 +14,8 @@
         var userName = document.getElementById("name").value;
 //        ws = new WebSocket("ws://127.0.0.1:81/WebsocketTest/hello");
 //        ws = new WebSocket("ws://www.luocaca.cn/hello-ssm/hello/" + userName);
-        ws = new WebSocket("ws://192.168.1.133:81/hello-ssm/hello/" + userName);
+//        ws = new WebSocket("ws://192.168.1.133:81/hello-ssm/hello/" + userName);
+        ws = new WebSocket("ws://localhost:81/hello-ssm/hello/" + userName);
 //        ws = new WebSocket("ws://localhost:81/hello-ssm/hello");
         ws.onopen = function (event) {
             console.log(event);

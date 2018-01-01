@@ -2,8 +2,11 @@ package com.hisen.service.impl;
 
 import com.hisen.dao.BookDao;
 import com.hisen.entity.Book;
+import com.hisen.entity.Video;
 import com.hisen.service.BookService;
+
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +34,11 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public int addVideo(Video video) {
+        return bookDao.addVideo(video);
+    }
+
+    @Override
     public int updateBook(Book book) {
         return bookDao.updateBook(book);
     }
@@ -38,5 +46,10 @@ public class BookServiceImpl implements BookService {
     @Override
     public int deleteBookById(long id) {
         return bookDao.deleteBookById(id);
+    }
+
+    @Override
+    public List<Video> queryAllVideo(int a, int b) {
+        return bookDao.queryAllVideo(a, b);
     }
 }

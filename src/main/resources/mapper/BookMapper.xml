@@ -34,6 +34,23 @@
         LIMIT #{offset}, #{limit}
     </select>
 
+    <select id="queryAllVideo" resultType="Video">
+        SELECT
+        id,
+        name,
+        imageurl,
+        url,
+        type,
+        create_time,
+        comment
+        FROM
+        video
+        ORDER BY
+        id
+        DESC
+        LIMIT #{offset}, #{limit}
+    </select>
+
     <update id="updateBook" parameterType="Book">
         UPDATE book
         SET NAME = #{name},
@@ -49,6 +66,17 @@
         VALUES(#{bookId}, #{name}, #{number}, #{detail}, #{url},#{date})
     </insert>
 
+    <insert id="addVideo">
+        INSERT INTO video( `url`)
+        VALUES( #{url})
+    </insert>
+
+    <!-- <insert id="addVideo">
+        INSERT INTO video( `name`, `imageurl`,`url`,`type` ,`comment`)
+        VALUES( #{name}, #{imageurl}, #{url}, #{type}},#{comment})
+    </insert>-->
+
+<!-- #{createTime},,`create_time`-->
     <delete id="deleteBookById">
         DELETE FROM book WHERE book_id = #{bookId}
     </delete>

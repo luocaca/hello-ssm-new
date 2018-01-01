@@ -4,7 +4,6 @@ package pdf.kit;
 import com.hisen.pdf.component.PDFHeaderFooter;
 import com.hisen.pdf.component.PDFKit;
 import com.hisen.pdf.component.chart.Line;
-import com.hisen.pdf.component.chart.LineChart;
 import com.hisen.pdf.component.chart.impl.DefaultLineChart;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.exception.ExceptionUtils;

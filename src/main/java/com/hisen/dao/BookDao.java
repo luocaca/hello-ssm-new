@@ -1,6 +1,7 @@
 package com.hisen.dao;
 
 import com.hisen.entity.Book;
+import com.hisen.entity.Video;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -10,8 +11,17 @@ import java.util.List;
  */
 public interface BookDao {
     Book queryById(long id);
+
     List<Book> queryAll(@Param("offset") int offset, @Param("limit") int limit);
+
     int addBook(Book book);
+
+
+    int addVideo(Video video);
+
     int updateBook(Book book);
+
     int deleteBookById(long id);
+
+    List<Video> queryAllVideo(@Param("offset") int offset, @Param("limit") int limit);
 }

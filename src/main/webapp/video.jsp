@@ -69,7 +69,8 @@
             var userName = document.getElementById("name").value;
 //        ws = new WebSocket("ws://127.0.0.1:81/WebsocketTest/hello");
 //        ws = new WebSocket("ws://www.luocaca.cn/hello-ssm/hello/" + userName);
-            ws = new WebSocket("ws://192.168.1.134:81/hello-ssm/hello/" + userName);
+//            ws = new WebSocket("ws://192.168.1.134:81/hello-ssm/hello/" + userName);
+            ws = new WebSocket("ws://localhost:81/hello-ssm/hello/" + userName);
 //        ws = new WebSocket("ws://localhost:81/hello-ssm/hello");
             ws.onopen = function (event) {
                 console.log(event);
@@ -137,9 +138,9 @@
 
 
         <!--
-          -- Your video element. Just like regular HTML5 video.
+          -- Your Video element. Just like regular HTML5 Video.
           -->
-        <video id=example-video width=1080 height=640 class="video-js vjs-default-skin" controls="controls"
+        <video id=example-video width=600 height=400 class="video-js vjs-default-skin" controls="controls"
                autoplay="true">
             <source
             <%--src="https://ws.streamhls.huya.com/hqlive/77259038-2622305922-11262718175097126912-3407890260-10057-A-1514250789-1_1200/playlist.m3u8"--%>
@@ -165,11 +166,11 @@
 </div><!-- /.container -->
 
 
-<div style="width:420px; height: 786px;  ; position: fixed ; top: 120px ; left: 0px; ">
+<div style="width:300px; height: 400px;  ; position: fixed ; top: 120px ; left: 0px; ">
 
 
 
-    <textarea name="aa" id="content" cols="30" rows="10" style="width: 400px ; height: 700px;">
+    <textarea name="aa" id="content" cols="30" rows="10" style="width: 200px ; height: 400px;">
 
     </textarea>
 
@@ -192,13 +193,13 @@
   ------------------------------------------------------------------------!>
 
 <!--
-  -- Make sure to include the video.js CSS. This could go in
+  -- Make sure to include the Video.js CSS. This could go in
   -- the <head>, too.
   -->
 <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
 
 <!--
-  -- Include video.js and videojs-contrib-hls in your page
+  -- Include Video.js and videojs-contrib-hls in your page
   -->
 
 <script src="https://unpkg.com/video.js/dist/video.js"></script>
@@ -210,9 +211,9 @@
   -->
 <script>
     (function (window, videojs) {
-        var player = window.player = videojs('example-video');
+        var player = window.player = videojs('example-Video');
 
-        // hook up the video switcher
+        // hook up the Video switcher
         var loadUrl = document.getElementById('load-url');
         var url = document.getElementById('url');
         loadUrl.addEventListener('submit', function (event) {
