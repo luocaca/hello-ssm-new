@@ -17,8 +17,47 @@ public class testAdd {
     public static void main(String... args) {
 
 
-        ReportKit360 kit=new ReportKit360();
-        TemplateBO templateBO=new TemplateBO();//配置模板数据
+        printM3u8Url(19);
+
+
+    }
+
+    private static void printM3u8Url(int i) {
+        String str = +i + "+/003.ts";
+        String head = "#EXTINF:7.566667,\nhttp://video2.baliup.com:88/m3u8/";
+        String end = ".ts";
+
+        String start = "#EXTM3U\n" +
+                "#EXT-X-VERSION:3\n" +
+                "\n" +
+                "#EXT-X-MEDIA-SEQUENCE:0\n" +
+                "\n" +
+                "#EXT-X-ALLOW-CACHE:YES\n" +
+                "#EXT-X-TARGETDURATION:17\n" +
+                "\n";
+
+        String end1 = "#EXT-X-ENDLIST\n";
+
+        //#EXTINF:8.333333,
+        // http://video2.baliup.com:88/m3u8/14/004.ts
+        System.out.println(start);
+        for (int i1 = 0; i1 < 50; i1++) {
+            if (i1 > 9) {
+                System.out.println(head + i + "/" + "0" + i1 + end);
+            } else {
+                System.out.println(head + i + "/" + "00" + i1 + end);
+            }
+        }
+        System.out.println(end1);
+
+
+    }
+
+
+    public void addPdf() {
+
+        ReportKit360 kit = new ReportKit360();
+        TemplateBO templateBO = new TemplateBO();//配置模板数据
         templateBO.setTemplateName("你好  ! Hel你好你好你好你好你好你好lo freemarker! Hello jFreeChart!");
         templateBO.setFreeMarkerUrl("你好http://www.zheng-hang.com/chm/freemarker2_3_24/ref_directive_if.html");
         templateBO.setITEXTUrl("你好http://developers.itextpdf.com/examples-itext5");
@@ -27,29 +66,19 @@ public class testAdd {
         templateBO.setImageUrl("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png");
 
 
-        List<String> scores=new ArrayList<String>();
+        List<String> scores = new ArrayList<String>();
         scores.add("90");
         scores.add("95");
         scores.add("98");
         templateBO.setScores(scores);
-        List<Line> lineList=getTemperatureLineList();
-        DefaultLineChart lineChart=new DefaultLineChart();
-        String picUrl=lineChart.draw(lineList,0);//自定义的数据画图
+        List<Line> lineList = getTemperatureLineList();
+        DefaultLineChart lineChart = new DefaultLineChart();
+        String picUrl = lineChart.draw(lineList, 0);//自定义的数据画图
         templateBO.setPicUrl(picUrl);
-        String path= kit.createPDF(templateBO,"hello.pdf");
+        String path = kit.createPDF(templateBO, "hello.pdf");
         System.out.println(path);
 
-
-
-
-
-
     }
-
-
-
-
-
 
 
     public static void testUploadImage() {
