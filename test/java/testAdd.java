@@ -17,12 +17,15 @@ public class testAdd {
     public static void main(String... args) {
 
 
-        printM3u8Url(19);
+//        for (int i = 21; i < 40; i++) {
+            printM3u8Url(14);
+//        }
 
 
     }
 
     private static void printM3u8Url(int i) {
+        StringBuffer buffer = new StringBuffer();
         String str = +i + "+/003.ts";
         String head = "#EXTINF:7.566667,\nhttp://video2.baliup.com:88/m3u8/";
         String end = ".ts";
@@ -41,14 +44,68 @@ public class testAdd {
         //#EXTINF:8.333333,
         // http://video2.baliup.com:88/m3u8/14/004.ts
         System.out.println(start);
+        buffer.append(start);
         for (int i1 = 0; i1 < 50; i1++) {
             if (i1 > 9) {
                 System.out.println(head + i + "/" + "0" + i1 + end);
+                buffer.append(head + i + "/" + "0" + i1 + end);
             } else {
                 System.out.println(head + i + "/" + "00" + i1 + end);
+                buffer.append(head + i + "/" + "00" + i1 + end);
             }
+
         }
         System.out.println(end1);
+        buffer.append(end1);
+
+        //  File file = new File("D:/hust/file.txt");
+
+        String f = "C:/Users/Administrator/Desktop/demo/";
+        File directory = new File("C:/Users/Administrator/Desktop/demo/test");
+//        String str = "C:\\Users\\Administrator\\Desktop\\bak";
+        File dirs = new File("C:/Users/Administrator/Desktop/demo/dem1/demo2/demo3/test.txt");
+        File file = new File(f, i + ".m3u8");
+        /**
+         *  File file = new File("D:/hust/file.txt");
+         File directory = new File("D:/hust/hk");
+         File dir = new File("D:/hank/hu/file.txt");
+         */
+
+        if (!directory.exists()) {
+            System.out.println("mkdir-->" + directory.mkdir());
+//            System.out.println("" + directory.mkdirs());
+        }
+        if (!dirs.exists()) {
+            System.out.println("mkdirs-->" + dirs.mkdirs());
+        }
+
+        if (!file.exists()) {
+            try {
+                System.out.println("file.exists()-->" + dirs.createNewFile());
+            } catch (IOException e) {
+
+                System.out.println("文件创建失败--------");
+                e.printStackTrace();
+            }
+        }
+
+        file.setWritable(true);
+        byte[] bytes = buffer.toString().getBytes();
+
+        try {
+            PrintStream printStream = new PrintStream(new FileOutputStream(file));
+            printStream.print(buffer.toString());
+
+        } catch (FileNotFoundException e) {
+
+            System.out.println("未");
+            e.printStackTrace();
+        }
+
+
+//        if (!file.exists()) {
+//            file.mkdirs();
+//        }
 
 
     }
