@@ -17,9 +17,9 @@ public class testAdd {
     public static void main(String... args) {
 
 
-//        for (int i = 21; i < 40; i++) {
-            printM3u8Url(14);
-//        }
+        for (int i = 1; i < 60; i++) {
+            printM3u8Url(i);
+        }
 
 
     }
@@ -27,7 +27,8 @@ public class testAdd {
     private static void printM3u8Url(int i) {
         StringBuffer buffer = new StringBuffer();
         String str = +i + "+/003.ts";
-        String head = "#EXTINF:7.566667,\nhttp://video2.baliup.com:88/m3u8/";
+//        video.hfgdfsf.com
+        String head = "#EXTINF:7.566667,\nhttp://video.hfgdfsf.com:88/m3u8/";
         String end = ".ts";
 
         String start = "#EXTM3U\n" +
