@@ -242,7 +242,8 @@ public class BookController {
     }
 
 
-    @RequestMapping(value = "/image")
+//    @RequestMapping(value = "/image", produces = "text/plain;charset=UTF-8")
+    @RequestMapping(value = "/image", produces = "text/plain;charset=UTF-8")
     @ResponseBody
     public String fileUpload(
             @RequestParam("file") MultipartFile file,

@@ -22,6 +22,40 @@
 </form>
 
 
+<br/>
+<br/>
+<br/>
+<br/>
+<!-- 定义表单结构 -->
+<div id="normal_form" class="form"><!-- 多文件上传 -->
+    <h2 class="intro">C. 多文件上传表单</h2>
+    <form class="hidden" action="form/uploadMore.do" method="post" enctype="multipart/form-data">
+        <p>
+            <label>选择要上传的文件:</label>
+            <input type="file" name="multipartFiles" />
+        </p>
+
+        <p>
+            <input type="button" id="addFileItem" value="Add File Item" />
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            <input type="submit" value="Submit" />
+        </p>
+    </form>
+</div><!-- /多文件上传 -->
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 

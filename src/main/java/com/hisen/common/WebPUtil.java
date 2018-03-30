@@ -8,8 +8,8 @@ public class WebPUtil {
 
     public static void main(String... strs) {
 
-        String in = "E:\\as3.0\\IdeaProjects\\hello-ssm-new\\libwebp-0.4.1-windows-x64\\bin\\aa.png";
-        String out = "D:\\baiduyun\\bb.webp";
+        String in = "E:/as3.0/IdeaProjects/hello-ssm-new/libwebp-0.4.1-windows-x64/bin/aa.png";
+        String out = "D:/baiduyun/bb.webp";
 
         System.out.println(convertToWebp(in, out));
 
@@ -43,11 +43,11 @@ public class WebPUtil {
         // you can replace cwebpath in your case. in this case, we used a macos-based cwebp
 //        String cwebpPath = cl.getResource("libwebp/cwebp_macos").getPath();
 //        String cwebpPath = cl.getResource("/").getPath() + "/libwebp-0.4.1-windows-x64/bin/dwebp.exe";
-        String cwebpPath = "E:\\as3.0\\IdeaProjects\\hello-ssm-new\\libwebp-0.4.1-windows-x64\\bin\\dwebp.exe";
+        String cwebpPath = "E:/as3.0/IdeaProjects/hello-ssm-new/libwebp-0.4.1-windows-x64/bin/dwebp.exe";
         // cwebp = System.getProperty("user.dir")+"/libwebp-0.4.2-windows-	x64/bin/dwebp.exe";
 
         try {
-            String[] args = new String[]{"E:\\as3.0\\IdeaProjects\\hello-ssm-new\\libwebp-0.4.1-windows-x64\\bin\\dwebp.exe", inputFile, "-o", outputFile};
+            String[] args = new String[]{"E:/as3.0/IdeaProjects/hello-ssm-new/libwebp-0.4.1-windows-x64/bin/dwebp.exe", inputFile, "-o", outputFile};
 
             /**
              * C:\Users\Administrator\Desktop\ffm_demo\libwebp-0.4.1-windows-x64\bin>
