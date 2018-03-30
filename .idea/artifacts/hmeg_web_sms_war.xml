@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="hmeg-web-sms:war">
+    <output-path>$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-web/hmeg-web-sms/target</output-path>
+    <root id="archive" name="hmeg-sms.war">
+      <element id="artifact" artifact-name="hmeg-web-sms:war exploded" />
+    </root>
+  </artifact>
+</component>

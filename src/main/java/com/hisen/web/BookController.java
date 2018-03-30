@@ -30,7 +30,7 @@ import java.util.Enumeration;
 import java.util.List;
 
 /**
- * Created by hisen on 17-4-24.
+ * http://localhost/druid/datasource.html   数据库    池子   界面
  */
 @Controller
 @RequestMapping("/book")

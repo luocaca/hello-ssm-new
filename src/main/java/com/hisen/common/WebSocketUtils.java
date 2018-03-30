@@ -56,8 +56,12 @@ public class WebSocketUtils {
 
     public static void put(String userId, Session session) {
         System.out.println("添加一个 session 到列表  userId = " + userId);
-        if (!hasConnection(userId))
-            sessionMap.put(getKey(userId), session);
+        if ("游客".equals(userId)) {
+            sessionMap.put(getKey(userId + sessionMap.size()), session);
+        } else {
+            if (!hasConnection(userId))
+                sessionMap.put(getKey(userId), session);
+        }
     }
 
     public static void remove(String userId) {

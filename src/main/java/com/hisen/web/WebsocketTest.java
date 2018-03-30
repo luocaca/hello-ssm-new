@@ -69,9 +69,17 @@ public class WebsocketTest {
 //            session.getBasicRemote().sendText("服务器正在转发消息^_^");
             WebSocketUtils.getOtherSession(userId).forEach(session1 -> {
                 try {
-                    session1.getBasicRemote().sendText(userId + " :\n    " + msg);
+
+                    if (session1.isOpen()) {
+                        System.out.println("还有存在连接");
+                        session1.getBasicRemote().sendText(userId + " :\n    " + msg);
+                    }
+
 
                 } catch (IOException e) {
+                    WebSocketUtils.remove(userId);
+                    System.out.println("移除失去连接的  session");
+
                     System.out.println("服务器转发消息失败！");
                     e.printStackTrace();
                 }
@@ -79,6 +87,9 @@ public class WebsocketTest {
 
 
         } catch (Exception e) {
+            System.out.println("服务器转发消息失败！");
+            System.out.println("移除失去连接的  session");
+            WebSocketUtils.remove(userId);
             // TODO Auto-generated catch block
             e.printStackTrace();
         }

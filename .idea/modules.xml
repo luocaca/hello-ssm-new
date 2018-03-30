@@ -3,6 +3,21 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/hello-ssm.iml" filepath="$PROJECT_DIR$/hello-ssm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-api-app/hmeg-api-app.iml" filepath="$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-api-app/hmeg-api-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-common/hmeg-common.iml" filepath="$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-common/hmeg-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-dao/hmeg-dao.iml" filepath="$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-dao/hmeg-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-web/hmeg-dingtalk/hmeg-dingtalk.iml" filepath="$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-web/hmeg-dingtalk/hmeg-dingtalk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-entity/hmeg-entity.iml" filepath="$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-entity/hmeg-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-extends/hmeg-extends.iml" filepath="$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-extends/hmeg-extends.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-platform.iml" filepath="$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-platform.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-plugins/hmeg-plugins.iml" filepath="$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-plugins/hmeg-plugins.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-service/hmeg-service.iml" filepath="$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-service/hmeg-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-web/hmeg-wap-admin/hmeg-wap-admin.iml" filepath="$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-web/hmeg-wap-admin/hmeg-wap-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-web/hmeg-wap-mall/hmeg-wap-mall.iml" filepath="$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-web/hmeg-wap-mall/hmeg-wap-mall.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-web/hmeg-web.iml" filepath="$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-web/hmeg-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-web/hmeg-web-admin/hmeg-web-admin.iml" filepath="$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-web/hmeg-web-admin/hmeg-web-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-web/hmeg-web-mall/hmeg-web-mall.iml" filepath="$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-web/hmeg-web-mall/hmeg-web-mall.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-web/hmeg-web-sms/hmeg-web-sms.iml" filepath="$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-web/hmeg-web-sms/hmeg-web-sms.iml" />
     </modules>
   </component>
 </project>

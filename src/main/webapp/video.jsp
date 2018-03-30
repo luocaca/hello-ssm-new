@@ -1,5 +1,12 @@
+<%@ page import="java.util.ResourceBundle" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
+
+<% String appPath = request.getContextPath();
+//    ResourceBundle res = ResourceBundle.getBundle("config.properties");
+    ResourceBundle res = ResourceBundle.getBundle("config");
+//    ResourceBundle res = ResourceBundle.getBundle("config.istest");
+%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -64,13 +71,41 @@
 
     <script type="text/javascript">
         var ws;
+        //        ws = new WebSocket("ws://localhost:81/hello-ssm/hello/" + );
+        //        hello("游客")
 
-        function hello() {
+        // 默认以游客登录
+        function hello(str) {
+
             var userName = document.getElementById("name").value;
 //        ws = new WebSocket("ws://127.0.0.1:81/WebsocketTest/hello");
 //        ws = new WebSocket("ws://www.luocaca.cn/hello-ssm/hello/" + userName);
-//            ws = new WebSocket("ws://192.168.1.134:81/hello-ssm/hello/" + userName);
-            ws = new WebSocket("ws://localhost:81/hello-ssm/hello/" + userName);
+//        ws = new WebSocket("ws://192.168.1.134:81/hello-ssm/hello/" + userName);
+
+
+            var isTest = '<%=res.getString("config.istest")%>';
+
+            alert(isTest);
+
+
+            if (isTest == true) {
+                if (str == "游客") {
+                    ws = new WebSocket("ws://localhost:81/hello-ssm/hello/" + "游客");
+                } else {
+                    close();
+                    ws = new WebSocket("ws://localhost:81/hello-ssm/hello/" + userName);
+                }
+            } else {
+                if (str == "游客") {
+                    ws = new WebSocket("ws://www.luocaca.cn/hello-ssm/hello/" + "游客");
+                } else {
+                    close();
+                    ws = new WebSocket("ws://www.luocaca.cn/hello-ssm/hello/" + userName);
+                }
+//                ws = new WebSocket("ws://www.luocaca.cn/hello-ssm/hello/" + userName);
+            }
+
+
 //        ws = new WebSocket("ws://localhost:81/hello-ssm/hello");
             ws.onopen = function (event) {
                 console.log(event);
@@ -83,6 +118,8 @@
                 var content = document.getElementById("content");
                 content.text += "\n" + event.data + "\n";
                 content.value += "\n" + event.data + "\n";
+                content.scrollTop = content.scrollHeight;
+
 //            dv.innerHTML += "收到回复：\n" + event.data + "\n";
             };
 
@@ -123,7 +160,10 @@
             <%--</button>--%>
             <%--<span class="sr-only">欢迎来到大傻的世界----复制直播地址到 栏目 进行播放。地址找大傻要。。。。定时下发更新</span>--%>
             <span class="icon-bar">填写用户名 进行登录聊天系统<input type="text" id="name"> <input type="button" value="login"
-                                                                                      onclick="hello()"></span>
+                                                                                      onclick="{
+
+                hello();
+                                                                                      }"></span>
             <a class="navbar-brand" href="#">**大傻么么哒**</a>
         </div>
 
@@ -144,7 +184,7 @@
                autoplay="true">
             <source
             <%--src="https://ws.streamhls.huya.com/hqlive/77259038-2622305922-11262718175097126912-3407890260-10057-A-1514250789-1_1200/playlist.m3u8"--%>
-                    src="https://ws.streamhls.huya.com/huyalive/27899470-2567563261-11027600236406112256-5970220-10057-A-1514333320-1_1200/playlist.m3u8"
+                    src="http://www.luocaca.cn/hello-ssm/upload/playlist.m3u8"
                     type="application/x-mpegURL">
         </video>
 
@@ -152,7 +192,7 @@
             <label>
                 Video URL:
                 <input id=url type=url
-                       value="https://ws.streamhls.huya.com/hqlive/92094861-2335797845-10032175354342277120-589396000-10057-A-1514271949-1_1200/playlist.m3u8">
+                       value="http://www.luocaca.cn/hello-ssm/upload/playlist.m3u8">
             </label>
             <button type=submit>Load</button>
         </form>
@@ -174,11 +214,15 @@
 
     </textarea>
 
-    <textarea  id="msg"></textarea>
+
+    <%-- onkeypress="EnterPress(event)" onkeydown="EnterPress()" --%>
+    <textarea id="msg" name="msg" onkeydown="keyLogin(event)"></textarea>
     <input type="button" value="发送" onclick="subsend()">
 
 
 </div>
+
+</body>
 
 
 <!-- Bootstrap stuff. These three scripts aren't necessary for you
@@ -209,9 +253,9 @@
 <!--
   -- Now, initialize your player. That's it!
   -->
-<script>
+<script type="text/javascript">
     (function (window, videojs) {
-        var player = window.player = videojs('example-Video');
+        var player = window.player = videojs('example-video');
 
         // hook up the Video switcher
         var loadUrl = document.getElementById('load-url');
@@ -229,6 +273,7 @@
         });
     }(window, window.videojs));
 
+
     $(function () {
         $('#msg').bind('keypress', function (event) {
             if (event.keyCode == "13") {
@@ -237,11 +282,44 @@
         });
     });
 
-
 </script>
 
 
-</body>
+<script language="JavaScript">
+
+
+    function keyLogin(e) { //传入 event
+        var e = e || window.event;
+
+        if (e.keyCode == 13) {
+            subsend();
+        }
+    }
+
+    //    function keyLogin(){
+    //        if (event.keyCode==13)  //回车键的键值为13
+    //            subsend();
+    //    }
+</script>
+
+
+<%--<script defer="defer" language="javascript">--%>
+
+<%--hello("游客")--%>
+
+<%--< /body>--%>
+<%----%>
+<%----%>
+<%----%>
+
+<%--</script>--%>
+
+
+<script language="javascript" for="window" event="onload">
+    hello("游客");
+</script>
+
+
 </html>
 
 

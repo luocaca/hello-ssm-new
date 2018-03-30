@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="hmeg-web-admin:war">
+    <output-path>$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-web/hmeg-web-admin/target</output-path>
+    <root id="archive" name="hmeg-admin.war">
+      <element id="artifact" artifact-name="hmeg-web-admin:war exploded" />
+    </root>
+  </artifact>
+</component>

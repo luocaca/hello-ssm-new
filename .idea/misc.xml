@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-api-app" />
+    <file type="web" url="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-extends" />
+    <file type="web" url="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-web/hmeg-dingtalk" />
+    <file type="web" url="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-web/hmeg-wap-admin" />
+    <file type="web" url="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-web/hmeg-wap-mall" />
+    <file type="web" url="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-web/hmeg-web-admin" />
+    <file type="web" url="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-web/hmeg-web-mall" />
+    <file type="web" url="file://$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-web/hmeg-web-sms" />
     <file type="web" url="file://$PROJECT_DIR$" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/pom.xml" />
       </list>
     </option>
   </component>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="hmeg-api-app:war">
+    <output-path>$PROJECT_DIR$/../../../../../../hmeg-platform-3.0_new/hmeg-api-app/target</output-path>
+    <root id="archive" name="api.war">
+      <element id="artifact" artifact-name="hmeg-api-app:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -7,10 +7,38 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="hello-ssm" />
+        <module name="hmeg-api-app" />
+        <module name="hmeg-common" />
+        <module name="hmeg-dao" />
+        <module name="hmeg-dingtalk" />
+        <module name="hmeg-entity" />
+        <module name="hmeg-extends" />
+        <module name="hmeg-plugins" />
+        <module name="hmeg-service" />
+        <module name="hmeg-wap-admin" />
+        <module name="hmeg-wap-mall" />
+        <module name="hmeg-web-admin" />
+        <module name="hmeg-web-mall" />
+        <module name="hmeg-web-sms" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="hello-ssm" target="1.8" />
+      <module name="hmeg-api-app" target="1.7" />
+      <module name="hmeg-common" target="1.7" />
+      <module name="hmeg-dao" target="1.7" />
+      <module name="hmeg-dingtalk" target="1.7" />
+      <module name="hmeg-entity" target="1.7" />
+      <module name="hmeg-extends" target="1.7" />
+      <module name="hmeg-platform" target="1.7" />
+      <module name="hmeg-plugins" target="1.7" />
+      <module name="hmeg-service" target="1.7" />
+      <module name="hmeg-wap-admin" target="1.7" />
+      <module name="hmeg-wap-mall" target="1.7" />
+      <module name="hmeg-web" target="1.7" />
+      <module name="hmeg-web-admin" target="1.7" />
+      <module name="hmeg-web-mall" target="1.7" />
+      <module name="hmeg-web-sms" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

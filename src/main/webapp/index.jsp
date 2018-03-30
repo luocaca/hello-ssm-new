@@ -1,5 +1,12 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<% String appPath = request.getContextPath(); %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="java.util.ResourceBundle" %>
+<%
+    String appPath = request.getContextPath();
+//    ResourceBundle res = ResourceBundle.getBundle("config.properties");
+    ResourceBundle res = ResourceBundle.getBundle("config");
+//  ResourceBundle res = ResourceBundle.getBundle("config.istest");
+%>
+
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -15,7 +22,18 @@
 //        ws = new WebSocket("ws://127.0.0.1:81/WebsocketTest/hello");
 //        ws = new WebSocket("ws://www.luocaca.cn/hello-ssm/hello/" + userName);
 //        ws = new WebSocket("ws://192.168.1.133:81/hello-ssm/hello/" + userName);
-        ws = new WebSocket("ws://localhost:81/hello-ssm/hello/" + userName);
+
+        var isTest = '<%=res.getString("config.istest")%>';
+
+
+        alert(isTest);
+
+        if (isTest == true) {
+            ws = new WebSocket("ws://localhost:81/hello-ssm/hello/" + userName);
+        } else {
+            ws = new WebSocket("ws://www.luocaca.cn/hello-ssm/hello/" + userName);
+        }
+
 //        ws = new WebSocket("ws://localhost:81/hello-ssm/hello");
         ws.onopen = function (event) {
             console.log(event);
@@ -62,7 +80,7 @@
 <br/>
 
 <br/>
-看直播网站：<a href="video.jsp" target="_blank">点我点我</a>
+看直播网站11111111：<a href="video.jsp" target="_blank">点我点我</a>
 <br/>
 
 
@@ -106,34 +124,34 @@
 </div>
 
 
-<div>
+<%--<div>--%>
 
-    <video src="http://www.luocaca.cn/hello-ssm/upload/wx_camera_1510393866974.mp4"
-           style="width: 300px ;
-            height: 300px ;"
-           autoplay="true" controls="controls">
+    <%--<video src="http://www.luocaca.cn/hello-ssm/upload/wx_camera_1510393866974.mp4"--%>
+           <%--style="width: 300px ;--%>
+            <%--height: 300px ;"--%>
+           <%--autoplay="true" controls="controls">--%>
 
-    </video>
-
-
-</div>
+    <%--</video>--%>
 
 
-<video id="roomVideo" class="video-js vjs-default-skin vjs-big-play-centered"
-       style="width: 300px ;
-            height: 300px ;"
-       x-webkit-airplay="allow"
-       poster="" webkit-playsinline playsinline x5-video-player-type="h5"
-       x5-video-player-fullscreen="true" preload="auto" controls="controls"
-<%--src="https://ws.streamhls.huya.com/hqlive/77259038-2622305922-11262718175097126912-3407890260-10057-A-1514250789-1_1200/playlist.m3u8"--%>
-       src="http://www.luocaca.cn/hello-ssm/upload/景甜.webp"
+<%--</div>--%>
 
-       autoplay="true">
-    <source
-    <%--src="https://ws.streamhls.huya.com/hqlive/77259038-2622305922-11262718175097126912-3407890260-10057-A-1514250789-1_1200/playlist.m3u8"--%>
-            src="http://www.luocaca.cn/hello-ssm/upload/景甜.webp"
-            type="application/x-mpegURL">
-</video>
+
+<%--<video id="roomVideo" class="video-js vjs-default-skin vjs-big-play-centered"--%>
+       <%--style="width: 300px ;--%>
+            <%--height: 300px ;"--%>
+       <%--x-webkit-airplay="allow"--%>
+       <%--poster="" webkit-playsinline playsinline x5-video-player-type="h5"--%>
+       <%--x5-video-player-fullscreen="true" preload="auto" controls="controls"--%>
+<%--&lt;%&ndash;src="https://ws.streamhls.huya.com/hqlive/77259038-2622305922-11262718175097126912-3407890260-10057-A-1514250789-1_1200/playlist.m3u8"&ndash;%&gt;--%>
+       <%--src="http://www.luocaca.cn/hello-ssm/upload/景甜.webp"--%>
+
+       <%--autoplay="true">--%>
+    <%--<source--%>
+    <%--&lt;%&ndash;src="https://ws.streamhls.huya.com/hqlive/77259038-2622305922-11262718175097126912-3407890260-10057-A-1514250789-1_1200/playlist.m3u8"&ndash;%&gt;--%>
+            <%--src="http://www.luocaca.cn/hello-ssm/upload/景甜.webp"--%>
+            <%--type="application/x-mpegURL">--%>
+<%--</video>--%>
 
 <script src="./video.js?v=fc5104a2ab23"></script>
 <script src="./videojs-contrib-hls.js?v=c726b94b9923"></script>
@@ -240,7 +258,7 @@
 </html>
 
 
-评论 （通知）
+评论11 （通知）
 点赞 取消点赞 删除评论 （message）
 
 

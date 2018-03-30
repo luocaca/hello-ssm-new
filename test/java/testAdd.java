@@ -1,3 +1,4 @@
+import com.hisen.common.PushUtil;
 import com.hisen.pdf.component.chart.Line;
 import com.hisen.pdf.component.chart.impl.DefaultLineChart;
 import pdf.kit.ReportKit360;
@@ -17,30 +18,30 @@ public class testAdd {
     public static void main(String... args) {
 
 
-        ReportKit360 kit=new ReportKit360();
-        TemplateBO templateBO=new TemplateBO();//配置模板数据
-        templateBO.setTemplateName("你好  ! Hel你好你好你好你好你好你好lo freemarker! Hello jFreeChart!");
-        templateBO.setFreeMarkerUrl("你好http://www.zheng-hang.com/chm/freemarker2_3_24/ref_directive_if.html");
-        templateBO.setITEXTUrl("你好http://developers.itextpdf.com/examples-itext5");
+//        ReportKit360 kit=new ReportKit360();
+//        TemplateBO templateBO=new TemplateBO();//配置模板数据
+//        templateBO.setTemplateName("你好  ! Hel你好你好你好你好你好你好lo freemarker! Hello jFreeChart!");
+//        templateBO.setFreeMarkerUrl("你好http://www.zheng-hang.com/chm/freemarker2_3_24/ref_directive_if.html");
+//        templateBO.setITEXTUrl("你好http://developers.itextpdf.com/examples-itext5");
+//
+//        templateBO.setJFreeChartUrl("http://www.yiibai.com/jfreechart/jfreechart_referenced_apis.html");
+//        templateBO.setImageUrl("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png");
+//
+//
+//        List<String> scores=new ArrayList<String>();
+//        scores.add("90");
+//        scores.add("95");
+//        scores.add("98");
+//        templateBO.setScores(scores);
+//        List<Line> lineList=getTemperatureLineList();
+//        DefaultLineChart lineChart=new DefaultLineChart();
+//        String picUrl=lineChart.draw(lineList,0);//自定义的数据画图
+//        templateBO.setPicUrl(picUrl);
+//        String path= kit.createPDF(templateBO,"hello.pdf");
+//        System.out.println(path);
 
-        templateBO.setJFreeChartUrl("http://www.yiibai.com/jfreechart/jfreechart_referenced_apis.html");
-        templateBO.setImageUrl("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png");
 
-
-        List<String> scores=new ArrayList<String>();
-        scores.add("90");
-        scores.add("95");
-        scores.add("98");
-        templateBO.setScores(scores);
-        List<Line> lineList=getTemperatureLineList();
-        DefaultLineChart lineChart=new DefaultLineChart();
-        String picUrl=lineChart.draw(lineList,0);//自定义的数据画图
-        templateBO.setPicUrl(picUrl);
-        String path= kit.createPDF(templateBO,"hello.pdf");
-        System.out.println(path);
-
-
-
+        PushUtil.sendPush("83e5cb7bdda14d49b5ca16b1197c8134");
 
 
 
