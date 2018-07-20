@@ -11,7 +11,12 @@ public interface MountaineeringDao {
 
 
 
+    /*   */
 
+    int addMountaineering(Mountaineering mountaineering);
+
+
+    int updateMountaineering(Mountaineering mountaineering);
 
 
 }

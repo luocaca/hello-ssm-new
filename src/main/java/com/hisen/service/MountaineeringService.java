@@ -9,6 +9,12 @@ public interface MountaineeringService {
     Mountaineering queryLately();
 
 
+    int addMountaineering(Mountaineering mountaineering);
+
+
+
+    int updateMountaineering(Mountaineering mountaineering);
+
 
 
 }

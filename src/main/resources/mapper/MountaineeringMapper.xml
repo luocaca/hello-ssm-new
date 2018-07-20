@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hisen.dao.MountaineeringDao">
+    <!-- 目的：为dao接口方法提供sql语句配置 -->
+    <select id="queryLately" resultType="Mountaineering">
+        <!-- 具体的sql -->
+        SELECT
+        *
+        FROM
+        mountaineering
+        ORDER BY
+        id
+        desc
+        limit 1
+    </select>
+    <!--select * from表名 order by 表_id desc limit 1-->
+
+
+    <insert id="addMountaineering">
+        INSERT
+        INTO
+        mountaineering
+        (`title`, `price`, `images_banner`, `loaction`,`line_feature`,star,leader_name,user_join,special_offers,images_more,`desc`,create_date)
+        VALUES(#{title},#{price}, #{imagesBanner}, #{loaction}, #{lineFeature}, #{star},#{leaderName},#{userJoin},#{specialOffers},#{imagesMore},#{desc},#{createDate})
+
+    </insert>
+
+
+    <!--https://www.cnblogs.com/ai211234/p/5909904.html    批量添加-->
+
+    <!--updateMountaineering
+       <update id="updateBook" parameterType="Book">
+        UPDATE book
+        SET NAME = #{name},
+        NUMBER = #{number},
+        detail = #{detail}
+        WHERE
+        book_id = #{bookId}
+        AND number > 0
+    </update>-->
+
+    <update id="updateMountaineering" parameterType="Mountaineering">
+        UPDATE
+        mountaineering
+        SET
+        title = #{title},
+        price = #{price},
+        images_banner = #{imagesBanner},
+        loaction = #{loaction},
+        star = #{star},
+        leader_name = #{leaderName},
+        user_join = #{userJoin},
+        special_offers = #{specialOffers},
+        images_more = #{imagesMore},
+        `desc` = #{desc},
+        create_date = #{createDate},
+        close_date = #{closeDate}
+        WHERE `id`= #{id}
+
+
+
+    </update>
+
+
+</mapper>

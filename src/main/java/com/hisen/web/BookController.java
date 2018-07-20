@@ -21,6 +21,8 @@ import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Encoded;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.InetAddress;
@@ -31,6 +33,10 @@ import java.util.List;
 
 /**
  * http://localhost/druid/datasource.html   数据库    池子   界面
+ * <p>
+ * <p>
+ * 后台配置 file 路径
+ * https://blog.csdn.net/ab601026460/article/details/73065393
  */
 @Controller
 @RequestMapping("/book")
@@ -42,6 +48,7 @@ public class BookController {
 
     @Autowired
     private PropertyConfigurer configurer;
+
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model) {
@@ -242,7 +249,7 @@ public class BookController {
     }
 
 
-//    @RequestMapping(value = "/image", produces = "text/plain;charset=UTF-8")
+    //    @RequestMapping(value = "/image", produces = "text/plain;charset=UTF-8")
     @RequestMapping(value = "/image", produces = "text/plain;charset=UTF-8")
     @ResponseBody
     public String fileUpload(
@@ -264,6 +271,10 @@ public class BookController {
 
             // 文件保存路劲
             File outPath = new File(request.getServletContext().getRealPath("/"), "upload");
+
+            File bak = new File("C:\\mysoft\\tomcat7.0.53\\webapps\\upload", originalFilename);
+
+
             if (!outPath.exists() || !outPath.isDirectory()) {
                 outPath.mkdirs();
             }
@@ -274,7 +285,32 @@ public class BookController {
             logger.debug(outFile.getAbsolutePath());
 
             try {
+
+                FileInputStream fileInputStream;
+                FileOutputStream fileOutputStream;
                 file.transferTo(outFile);
+
+
+                if (bak.exists() && outFile != null && outFile.isFile()) {
+                    fileInputStream = new FileInputStream(outFile);
+                    fileOutputStream = new FileOutputStream(bak);
+
+                    byte[] bytes = new byte[2048];
+                    while (-1 != fileInputStream.read(bytes)) {
+                        fileOutputStream.write(bytes);
+                    }
+                    fileInputStream.close();
+                    fileOutputStream.close();
+                    logger.debug("-----------复制文件完成-----------");
+
+                }
+
+//                if (bak.exists()) {
+//
+//                    file.transferTo(bak);
+//                }
+
+
                 apiResult.setCode("1");
                 apiResult.setMsg("succeed");
 
@@ -308,6 +344,9 @@ public class BookController {
                 apiResult.setMsg("faild;\n" + e.getMessage());
                 e.printStackTrace();
                 logger.debug(e.getMessage());
+            } finally {
+
+
             }
         }
 

@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class BookServiceImpl implements BookService {
+    @SuppressWarnings("SpringJavaAutowiringInspection")
     @Autowired
     private BookDao bookDao;
 
