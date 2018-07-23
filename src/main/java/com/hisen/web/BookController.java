@@ -291,7 +291,11 @@ public class BookController {
                 file.transferTo(outFile);
 
 
-                if (bak.exists() && outFile != null && outFile.isFile()) {
+                if (bak.exists()) {
+                    bak.delete();
+                }
+
+                if ( outFile != null && outFile.isFile()) {
                     fileInputStream = new FileInputStream(outFile);
                     fileOutputStream = new FileOutputStream(bak);
 

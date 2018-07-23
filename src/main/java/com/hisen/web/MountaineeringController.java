@@ -17,6 +17,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * https://www.cnblogs.com/qdpurple/p/5742059.html
+ * 1024 问题 数据库上传最大值
+ */
 
 @Controller
 @RequestMapping("/mountaineering")
@@ -95,7 +99,7 @@ public class MountaineeringController {
 //            DateFormat dateFormat = new SimpleDateFormat("yy-MM-dd");
 //            model.setCreateDate(new Date());
 //            i = service.addMountaineering(model);
-            apiResult.setMsg("修改成功"+i);
+            apiResult.setMsg("修改成功" + i);
             apiResult.setCode("1");
         } catch (Exception e) {
             apiResult.setMsg("修改失败" + e.getMessage());
